@@ -14,11 +14,14 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-//for fetching all products
-Route::get('/products', [ProductController::class, 'index']);
+//for making all types of routes automatically
+Route::resource('products', ProductController::class);
+//========================================================
+// //for fetching all products
+// Route::get('/products', [ProductController::class, 'index']);
 
-//for create Products
-Route::post('/products', [ProductController::class, 'store']);
+// //for create Products
+// Route::post('/products', [ProductController::class, 'store']);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
